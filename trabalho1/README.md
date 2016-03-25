@@ -2,3 +2,4 @@
 
 Mateus Augusto Bellomo Agrello Ruivo	RA: 147338  
 
+![alt tag](http://genetic_performanceDisco.bmp)
