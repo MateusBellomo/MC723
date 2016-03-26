@@ -102,11 +102,24 @@ Quanto a cycles as máquinas não tiveram muita variação. Da mesma forma o nú
 
 ![alt text](/trabalho1/tcc_tempo.png "Fig 1")
 
+As máquinas Renan Gomes, Renan Castro e João Fidélis obtiveram o melhor desempenho com relação ao tempo de execução o que era esperado pois são as máquinas com os melhores processadores (Intel Core i7). Uma surpresa é a máquina Renan Castro que no benchmark Convolução obteve desempenho pior comparado com as outras. Como é uma máquina virtual é dificil medir o seu desempenho já que o processador está concorrendo com dois sistemas operacionais operantes.  
 
 
 ## Benchmark FFTW ##
 
 ![alt text](/trabalho1/fftw_DFT1D.png "Fig 1")
 ![alt text](/trabalho1/fftw_DFT1D_IO.png "Fig 1")
+
+Para o primeiro teste (DFT1D) a máquina Mateus Ruivo obteve o pior desempenho e como foi bem inferior às outras máquinas então seria melhor analisarmos os desempenhos sem essa máquina no conjunto de dados:  
+
+![alt text](/trabalho1/fftw_DFT1D_Mateus.png "Fig 1")
+
+A máquina com pior desempenho foi a Bruno Hori o que é justificável por possuir um pior processador (Intel Core 2 Quad) comparado às outras máquinas (Intel Core i7).  
+
+Vale notar que ao rodar esse teste (DFT1D) na máquina Mateus Ruivo, e manter um terminal com a visualização do consumo em processamento e memória (comando top), observou-se que o processo consumia mais memória (em torno de 70%) do que processamento (em torno de 3%). Assim parece que todo o consumo do programa se dava na grande quantidade de escrita e leitura em memória. Ainda mais curioso é que ocorreu o contrário que planejava o benchmark: o programa foi mais rápido quando executado no teste DFT1D do que no DFT1D_IO. Não fui capaz de explicar o que causou tal comportamento, mas a máquina Mateus Ruivo ficava inutilizável após rodar DFT1D e inclusive foi necessário reiniciá-la após a execução do programa.  
+
+Para o teste DFT1D_IO a máquina Gustavo Basso obteve melhor desempenho mesmo assim não a diferindo muito das outras. A máquina Bruno Hori obteve o pior desempenho o que já era esperado.  
+
+Talvez fosse interssante incluir nesse benchmark uma medida de acesso a memória para que as diferenças causadas pela escrita e leitura em arquivo entre DFT1D e DFT1D_IO fossem melhor observadas como gostaria o grupo autor de tal benchmark.  
 
 
