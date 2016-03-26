@@ -4,6 +4,17 @@ Mateus Augusto Bellomo Agrello Ruivo	RA: 147338
 
 ## Benchmark Genetic ##
 
-![alt tag](https://github.com/MateusBellomo/MC723/blob/master/trabalho1/genetic_tempo.png)
-
 ![alt text](/trabalho1/genetic_tempo.png "Fig 1")
+
+![alt text](/trabalho1/genetic_performceDisco.png "Fig 1")
+
+
+## Benchmark ffmpeg ##
+## Benchmark convolução ##
+## Benchmark gnuplot ##
+## Benchmark ordenação ##
+## Benchmark imagemagick ##
+## Benchmark tcc ##
+## Benchmark FFTW ##
+
+
