@@ -63,11 +63,15 @@ Com relação ao quesito tempo as máquinas obtiveram desempenho semelhante (com
 
 No quesito CPU-clock as mesmas máquinas de antes possuiram pior desempenho aqui também o que era esperado.  
 
+MEM-STORES???  
 
+
+??? No quesito bus-cycles as máquinas com melhores desempenho foram Mateus Ruivo, Gabriel Magalhães, Rodrigo Silva, e Matheus Figueiredo. Essa é uma medida indireta da velocidade no barramento de dados.  
 
 
 
 ## Benchmark ordenação ##
+
 
 ![alt text](/trabalho1/ordenacao_piorCasoLento.png "Fig 1")
 ![alt text](/trabalho1/ordenacao_piorCasoRapido.png "Fig 1")
@@ -77,6 +81,9 @@ No quesito CPU-clock as mesmas máquinas de antes possuiram pior desempenho aqui
 ![alt text](/trabalho1/ordenacao_melhorCasoRapido.png "Fig 1")
 
 
+Como era de se esperar, as máquinas no geral obtiveram desempenho parecido, com exceção da máquina Pedro Vasconcellos e Felipe Emos, que possuem processadores com menor frequência o obtiveram os piores desempenhos. A melhor máquina em todas as análises foi a Pedro Meireles (que possui maior frequência de clock).  
+
+
 ## Benchmark imagemagick ##
 
 ![alt text](/trabalho1/imageMagick_tempo.png "Fig 1")
@@ -84,9 +91,18 @@ No quesito CPU-clock as mesmas máquinas de antes possuiram pior desempenho aqui
 ![alt text](/trabalho1/imageMagick_cycles.png "Fig 1")
 ![alt text](/trabalho1/imageMagick_instructions.png "Fig 1")
 
+Para a medida de tempo de execução, novamente a máquina Felipe Emos obteve pior desempenho. As melhore máquinas foram Titouan Thibaud (Intel Core i5 3.3GHz) e Cygnus X-1 (Intel Core i7 x 4).  
+
+Quanto a task-clock a máquina Cygnus X-1 obteve maior paralelização mas não diferindo muito das outras já que todas processadores com 4 núcleos (a menos da máquina Gabriel Magalhães que possui 8 núcleos).  
+
+Quanto a cycles as máquinas não tiveram muita variação. Da mesma forma o número de instruções por ciclo de máquina (Instructions) não diferiu muito entre as máquinas. Esse resultado é esperado pois as máquinas são de mesma arquitetura.  
+
+
 ## Benchmark tcc ##
 
 ![alt text](/trabalho1/tcc_tempo.png "Fig 1")
+
+
 
 ## Benchmark FFTW ##
 
