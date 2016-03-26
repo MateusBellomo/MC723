@@ -17,10 +17,30 @@ Mateus Augusto Bellomo Agrello Ruivo	RA: 147338
 ![alt text](/trabalho1/ffmpeg_L1_dcache.png "Fig 1")
 
 
-
 ## Benchmark convolução ##
+
+![alt text](/trabalho1/convolucao_tempo.png "Fig 1")
+![alt text](/trabalho1/convolucao_escrita.png "Fig 1")
+![alt text](/trabalho1/convolucao_leitura.png "Fig 1")
+
 ## Benchmark gnuplot ##
+
+![alt text](/trabalho1/gnuplot_tempo.png "Fig 1")
+![alt text](/trabalho1/gnuplot_cpuClock.png "Fig 1")
+![alt text](/trabalho1/gnuplot_memStores.png "Fig 1")
+![alt text](/trabalho1/gnuplot_busCycles.png "Fig 1")
+
+
 ## Benchmark ordenação ##
+
+![alt text](/trabalho1/ordenacao_piorCasoLento.png "Fig 1")
+![alt text](/trabalho1/ordenacao_piorCasoRapido.png "Fig 1")
+![alt text](/trabalho1/ordenacao_casoMedioLento.png "Fig 1")
+![alt text](/trabalho1/ordenacao_casoMedioRapido.png "Fig 1")
+![alt text](/trabalho1/ordenacao_melhorCasoLento.png "Fig 1")
+![alt text](/trabalho1/ordenacao_melhorCasoRapido.png "Fig 1")
+
+
 ## Benchmark imagemagick ##
 ## Benchmark tcc ##
 ## Benchmark FFTW ##
