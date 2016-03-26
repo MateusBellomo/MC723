@@ -5,8 +5,13 @@ Mateus Augusto Bellomo Agrello Ruivo	RA: 147338
 ## Benchmark Genetic ##
 
 ![alt text](/trabalho1/genetic_tempo.png "Fig 1")
-
 ![alt text](/trabalho1/genetic_performceDisco.png "Fig 1")
+
+Pela análise do gráfico percebe-se claramente que a máquina Pedro Vasconcellos possui o pior desempenho tanto em tempo de execução quanto performance de disco. Isso pode ser justificado pelas suas especifações: é uma Raspberry Pi com 900 MHz e 1GB de RAM. Ao removermos essa máquina do gráfico conseguimos comparar melhor as outras máquinas:
+
+![alt text](/trabalho1/genetic_tempo_Pedro.png "Fig 1")
+![alt text](/trabalho1/genetic_performceDisco_Pedro.png "Fig 1")
+
 
 
 ## Benchmark ffmpeg ##
