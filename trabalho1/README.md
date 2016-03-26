@@ -38,12 +38,33 @@ Com relação à load misses da cache L1 as máquinas tiveram desempenho semelha
 ![alt text](/trabalho1/convolucao_escrita.png "Fig 1")
 ![alt text](/trabalho1/convolucao_leitura.png "Fig 1")
 
+Com relação ao quesito tempo as máquinas tiveram desempenho semelhante (com exceção das máquinas Renan Castro e Victor Souza) o que era esperado devido as especificações semelhantes. A máquina Renan Castro pode ter sido prejudica pois era uma máquina virtual logo nem toda capacidade do processador é dedicada à ela. Já a máquina Victor Souza possuiu um resultado inesperado comparado ao benchmark anterior (ffmpeg) o qual ficou com desempenho semelhante às outras máquinas. Talvez o usuário estivesse rodando algum outro processo em paralelo.
+
+Com relação à escrita as melhores máquinas foram yk0, Victor Souza e Gustavo Basso. A máquina yk0 possui um disco com RPM maior (7200rpm) o que pode justificar o seu melhor desempenho. As outras duas máquinas não possuem essa informação em sua descrição.  
+
+Com relação à leitura as melhore máquinas foram yk0 e Victor Souza. Isso era esperado pois elas também tiveram as melhores escritas e a velocidade no barramento de dados do disco costuma ser a mesma para leitura e escrita. Já a máquina Gustavo Basso teve um desempenho ruim nesse quesito o que causa certa estranheza já que ela obteve boa taxa de escrita.  
+
+
 ## Benchmark gnuplot ##
 
 ![alt text](/trabalho1/gnuplot_tempo.png "Fig 1")
 ![alt text](/trabalho1/gnuplot_cpuClock.png "Fig 1")
 ![alt text](/trabalho1/gnuplot_memStores.png "Fig 1")
 ![alt text](/trabalho1/gnuplot_busCycles.png "Fig 1")
+
+A máquina Pedro Vasconcellos novamente obteve pior desempenho nos quesitos tempo, cpu-clock e bus-cycles e o motivo já foi citado anteriormente. Como os valores obtidos pela máquina Pedro Grijó estão muito abaixo das outras (na ordem de 1000 vezes menor) provavelmente houve algum erro na obtenção do dado logo fica mais claro se removermos ambas as máquinas, obtendo:  
+
+![alt text](/trabalho1/gnuplot_tempo_PedroGrijo.png "Fig 1")
+![alt text](/trabalho1/gnuplot_cpuClock_PedroGrijo.png "Fig 1")
+![alt text](/trabalho1/gnuplot_memStores_PedroGrijo.png "Fig 1")
+![alt text](/trabalho1/gnuplot_busCycles_PedroGrijo.png "Fig 1")
+
+Com relação ao quesito tempo as máquinas obtiveram desempenho semelhante (com exceção das máquinas Pedro Meireles, Matheus Pinheiro e Felipe Emos). A máquina Pedro Meireles obteve um desempenho ruim se comparado com o benchmark Genetic, o que não era esperado. Já as máquinas Matheus Pinheiro e Felipe Emos realmente possuem especificação um pouco pior dos que as outras máquinas: Matheus Pinheiro possui um processador com 1.60GHz e Felipe Emos um netbook com Intel Atom.  
+
+No quesito CPU-clock as mesmas máquinas de antes possuiram pior desempenho aqui também o que era esperado.  
+
+
+
 
 
 ## Benchmark ordenação ##
