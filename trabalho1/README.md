@@ -42,7 +42,19 @@ Mateus Augusto Bellomo Agrello Ruivo	RA: 147338
 
 
 ## Benchmark imagemagick ##
+
+![alt text](/trabalho1/imageMagick_tempo.png "Fig 1")
+![alt text](/trabalho1/imageMagick_taskClock.png "Fig 1")
+![alt text](/trabalho1/imageMagick_cycles.png "Fig 1")
+![alt text](/trabalho1/imageMagick_instructions.png "Fig 1")
+
 ## Benchmark tcc ##
+
+![alt text](/trabalho1/tcc_tempo.png "Fig 1")
+
 ## Benchmark FFTW ##
+
+![alt text](/trabalho1/fftw_DFT1D.png "Fig 1")
+![alt text](/trabalho1/fftw_DFT1D_IO.png "Fig 1")
 
 
