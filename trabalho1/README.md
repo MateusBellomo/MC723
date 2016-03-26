@@ -14,7 +14,7 @@ Pela análise do gráfico percebe-se claramente que a máquina Pedro Vasconcello
 
 As melhores máquinas no quesito tempo são Pedro Meireles, Klaus Rollman, Renan Gomes, debios, Gabriel Bueno, João Fidelis, Pedro Grijó, Matheus Figueiredo. Isso era esperado pois todas essas máquinas possuem especificações semelhantes (processador i5 ou i7 com mais de 2.2GHz).  
 
-Com relação a performance de disco a melhor máquina é Klaus Rollman.
+Com relação a performance de disco a melhor máquina é Klaus Rollman. Como só é escrita em disco a imagem final talvez essa não seja a melhor forma de se medir performance de disco. Algo mais interessante seria escrever várias imagens em disco em passos intermediários e obter uma média dessa performance obtendo um dado de melhor qualidade.  
 
 ## Benchmark ffmpeg ##
 
@@ -22,6 +22,14 @@ Com relação a performance de disco a melhor máquina é Klaus Rollman.
 ![alt text](/trabalho1/ffmpeg_pageFault.png "Fig 1")
 ![alt text](/trabalho1/ffmpeg_stalledCycles.png "Fig 1")
 ![alt text](/trabalho1/ffmpeg_L1_dcache.png "Fig 1")
+
+Claramente a máquina com pior desempenho de tempo é Luiz Sekijima e isso era esperado pois ela possui um processador de modelo antigo (Intel Core 2 Duo). Novamente o melhor tempo fica entre aquelas máquinas de configuração semelhante: processadores Intel Core i5/i7 com mais de 2.2GHz (com exceção de um AMD PhenomII com 3.2GHz e um Intel Core 2 Quad com 2.66GHz).  
+
+As máquinas com maior numero de Page-Fauts foram Klaus Rollman e debios mas isso pode estar relacionado com processos correndo em paralelo com bastante utilização de memória. A máquina com menor número de Page-Faults foi Luiz Sekijima.  
+
+Das máquinas que fizeram a medição de Stalled cycles, não houve grande diferença entre Klaus Rollman, debios e Gabriel Magalhães. Porém a máquina yk0 teve uma quantidade de Stalled cycles bem menor que as outras que pode estar relacionado com uma cache maior (essa informação não se encontra na planilha de dados).  
+
+Com relação à load misses da cache L1 as máquinas tiveram desempenho semelhante com exceção da máquina Klaus Rollman que obteve uma quantidade bem maior que as outras (de 10 a 20 vezes mais).  
 
 
 ## Benchmark convolução ##
