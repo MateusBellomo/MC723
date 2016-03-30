@@ -61,13 +61,12 @@ A máquina Pedro Vasconcellos novamente obteve pior desempenho nos quesitos temp
 
 Com relação ao quesito tempo as máquinas obtiveram desempenho semelhante (com exceção das máquinas Pedro Meireles, Matheus Pinheiro e Felipe Emos). A máquina Pedro Meireles obteve um desempenho ruim se comparado com o benchmark Genetic, o que não era esperado. Já as máquinas Matheus Pinheiro e Felipe Emos realmente possuem especificação um pouco pior dos que as outras máquinas: Matheus Pinheiro possui um processador com 1.60GHz e Felipe Emos um netbook com Intel Atom.  
 
-No quesito CPU-clock as mesmas máquinas de antes possuiram pior desempenho aqui também o que era esperado.  
+No quesito CPU-clock as máquinas de antes que possuiram pior desempenho aqui também o fizeram, o que era esperado.  
 
-MEM-STORES???  
+Poucas pessoas conseguiram medir os MEM-stores. Além do mais esse quesito sozinho não é muito útil e deveria ser combinado com cache misses (que não medimos) e tempo de execução, mas descobrimos isso após definir o nosso método de análise. Sendo assim não é possível analisá-lo de maneira significativa.
 
 
-??? No quesito bus-cycles as máquinas com melhores desempenho foram Mateus Ruivo, Gabriel Magalhães, Rodrigo Silva, e Matheus Figueiredo. Essa é uma medida indireta da velocidade no barramento de dados.  
-
+Algo semelhante ocorreu com o quesito bus-cycles. O bus-cycle juntamente com o número de instruções executadas poderia ser usado para calcular a quantidade de ciclos por instrução (CPI). Como não pedimos a medição de instruções executadas (e só soubemos depois que seria necessário esse dado), não é possível fazer uma análise que tenha sentido sobre esse dado.  
 
 
 ## Benchmark ordenação ##
