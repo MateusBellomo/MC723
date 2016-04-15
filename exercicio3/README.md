@@ -5,6 +5,19 @@ Mateus Augusto Bellomo Agrello Ruivo	RA: 147338
 ## Criação de um hello.c ##
 
 A princípio criei um programa hello.c para testar a quantidade de instruções add usadas.
+
+	#include <stdio.h>
+
+	int main(){
+	  int a = 1, i;
+	  for(i = 0; i < 1000; i++){
+	     a += i;
+	  }
+          printf("Hello World!...%d\n", a);
+	  return 0;
+	}
+
+
 O trace escolhido foi o vortex_m2b pois com todos os que testei foi aquele que demorava mais para a taxa de miss chegar em 0.  
 
 ## Escolha de tamanho da cache L1 ##
