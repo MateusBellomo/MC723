@@ -56,25 +56,25 @@ Olhando a linha 154 vemos que ocorre um **addu** e que o valor é guardado em *v
 ## Susan edges - small ##
 
 
-   ArchC: -------------------- Simulation Finished --------------------
-   number of memory access = 2752695 cycles = 27526950
-   number of jumps = 961478 cycles = 2884434
-   number of others = 4378976 cycles =  4378976
+    ArchC: -------------------- Simulation Finished --------------------
+    number of memory access = 2752695 cycles = 27526950
+    number of jumps = 961478 cycles = 2884434
+    number of others = 4378976 cycles =  4378976
 
 
 ## sha - small ##
 
-   ArchC: -------------------- Simulation Finished --------------------
-   number of memory access = 2579546 cycles = 25795460
-   number of jumps = 606891 cycles = 1820673
-   number of others = 9989203 cycles = 9989203
+    ArchC: -------------------- Simulation Finished --------------------
+    number of memory access = 2579546 cycles = 25795460
+    number of jumps = 606891 cycles = 1820673
+    number of others = 9989203 cycles = 9989203
 
 ## sha - large ##
 
-   ArchC: -------------------- Simulation Finished --------------------
-   number of memory access = 26817990 cycles = 268179900
-   number of jumps = 6307427 cycles = 18922281
-   number of others = 103960168 cycles = 103960168
+    ArchC: -------------------- Simulation Finished --------------------
+    number of memory access = 26817990 cycles = 268179900
+    number of jumps = 6307427 cycles = 18922281
+    number of others = 103960168 cycles = 103960168
 
 Para definir um tamanho para a cache L1 realizei alguns testes (tanto para cache de instrução quanto de dados) com número de vias fixo (1-way) e tamanho de bloco 32B. Verifiquei como se comportava a taxa de miss quando o tamanho da cache aumentava.  
 
