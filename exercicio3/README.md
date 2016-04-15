@@ -4,7 +4,7 @@ Mateus Augusto Bellomo Agrello Ruivo	RA: 147338
 
 ## Criação de um hello.c ##
 
-A princípio criei um programa hello.c para testar a quantidade de instruções add usadas.
+A princípio criei um programa *hello.c* para testar a quantidade de instruções **add** usadas.
 
 	#include <stdio.h>
 
@@ -20,7 +20,7 @@ Utilizando o comando
 
 	   mips-newlib-elf-objdump -d hello.mips > objdump_out
 
-obtive o assembly de meu hello.c:
+obtive o assembly de meu *hello.c*:
 
        00000128 <main>:
 	 128:       27bdffd8        addiu   sp,sp,-40
@@ -50,8 +50,8 @@ obtive o assembly de meu hello.c:
 	 188:       00000000        nop
 
 
+Olhando a linha 154 vemos que ocorre um **addu** e que o valor é guardado em *v0*. Depois esse valor é transferido para *a0* e isso ocorre por causa da chamada do *printf*. Occorre um outro **addiu** também no início e fim do programa mas está relacionado à pilha.
 
-O trace escolhido foi o vortex_m2b pois com todos os que testei foi aquele que demorava mais para a taxa de miss chegar em 0.  
 
 ## Escolha de tamanho da cache L1 ##
 
