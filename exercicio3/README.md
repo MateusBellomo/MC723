@@ -9,13 +9,46 @@ A princípio criei um programa hello.c para testar a quantidade de instruções 
 	#include <stdio.h>
 
 	int main(){
-	  int a = 1, i;
-	  for(i = 0; i < 1000; i++){
-	     a += i;
-	  }
-          printf("Hello World!...%d\n", a);
+	  int a = 1, b =2;
+	  int c= a+b;
+
+	  printf("Hello World! %d\n", c);
 	  return 0;
 	}
+
+Utilizando o comando 
+
+	   mips-newlib-elf-objdump -d hello.mips > objdump_out
+
+obtive o assembly de meu hello.c:
+
+00000128 <main>:
+     128:       27bdffd8        addiu   sp,sp,-40
+     12c:       afbf0024        sw      ra,36(sp)
+     130:       afbe0020        sw      s8,32(sp)
+     134:       03a0f021        move    s8,sp
+     138:       24020001        li      v0,1
+     13c:       afc20010        sw      v0,16(s8)
+     140:       24020002        li      v0,2
+     144:       afc20014        sw      v0,20(s8)
+     148:       8fc30010        lw      v1,16(s8)
+     14c:       8fc20014        lw      v0,20(s8)
+     150:       00000000        nop
+     154:       00621021        addu    v0,v1,v0
+     158:       afc20018        sw      v0,24(s8)
+     15c:       3c020001        lui     v0,0x1
+     160:       24444a58        addiu   a0,v0,19032
+     164:       8fc50018        lw      a1,24(s8)
+     168:       0c00007f        jal     1fc <printf>
+     16c:       00000000        nop
+     170:       00001021        move    v0,zero
+     174:       03c0e821        move    sp,s8
+     178:       8fbf0024        lw      ra,36(sp)
+     17c:       8fbe0020        lw      s8,32(sp)
+     180:       27bd0028        addiu   sp,sp,40
+     184:       03e00008        jr      ra
+     188:       00000000        nop
+
 
 
 O trace escolhido foi o vortex_m2b pois com todos os que testei foi aquele que demorava mais para a taxa de miss chegar em 0.  
