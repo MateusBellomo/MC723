@@ -53,6 +53,19 @@ obtive o assembly de meu *hello.c*:
 Olhando a linha 154 vemos que ocorre um **addu** e que o valor é guardado em *v0*. Depois esse valor é transferido para *a0* e isso ocorre por causa da chamada do *printf*. Occorre um outro **addiu** também no início e fim do programa mas está relacionado à pilha.
 
 
+## Avaliando desempenho de *benchmarks* ##
+
+Utilizando a seguinte tabela com CPI médio de instruções
+
+Categoria | CPI médio
+------------ | -------------
+Acesso à memória | 10
+Controle (branch/jump) | 3
+Outras | 1
+
+obtive os seguintes resultados:
+
+
 ## Susan edges - small ##
 
 
@@ -60,6 +73,7 @@ Olhando a linha 154 vemos que ocorre um **addu** e que o valor é guardado em *v
     number of memory access = 2752695 cycles = 27526950
     number of jumps = 961478 cycles = 2884434
     number of others = 4378976 cycles =  4378976
+    total cycles = 34790360
 
 
 ## sha - small ##
@@ -68,6 +82,7 @@ Olhando a linha 154 vemos que ocorre um **addu** e que o valor é guardado em *v
     number of memory access = 2579546 cycles = 25795460
     number of jumps = 606891 cycles = 1820673
     number of others = 9989203 cycles = 9989203
+    total cycles = 37605336
 
 ## sha - large ##
 
@@ -75,6 +90,7 @@ Olhando a linha 154 vemos que ocorre um **addu** e que o valor é guardado em *v
     number of memory access = 26817990 cycles = 268179900
     number of jumps = 6307427 cycles = 18922281
     number of others = 103960168 cycles = 103960168
+    total cycles = 391062349
 
 Para definir um tamanho para a cache L1 realizei alguns testes (tanto para cache de instrução quanto de dados) com número de vias fixo (1-way) e tamanho de bloco 32B. Verifiquei como se comportava a taxa de miss quando o tamanho da cache aumentava.  
 
