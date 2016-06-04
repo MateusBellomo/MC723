@@ -49,8 +49,8 @@ O programa inicial foi modificado para que lesse várias posições de memória 
 	int main(){
 		int i;
 		for(i = 0; i < 10; i++){
-		        printf("value = %d   position = %d\n", *lock, lock);
-			lock++;
+		    printf("value = %d   position = %d\n", *lock, lock);
+		    lock++;
 		}
 		return 0;
 	}
@@ -59,28 +59,26 @@ O programa inicial foi modificado para que lesse várias posições de memória 
 A saída obtida foi a seguinte:
 
 
-   ArchC: Reading ELF application file: hello.mips
-   ArchC: -------------------- Starting Simulation --------------------
+  	ArchC: Reading ELF application file: hello.mips
+	ArchC: -------------------- Starting Simulation --------------------
 
-   value = 0   position = 104857600
-   value = 16777216   position = 104857604
-   value = 16777216   position = 104857608
-   value = 16777216   position = 104857612
-   value = 16777216   position = 104857616
-   value = 16777216   position = 104857620
-   value = 16777216   position = 104857624
-   value = 16777216   position = 104857628
-   value = 16777216   position = 104857632
-   value = 16777216   position = 104857636
-   ArchC: -------------------- Simulation Finished --------------------
+	value = 0   position = 104857600
+	value = 16777216   position = 104857604
+	value = 16777216   position = 104857608
+	value = 16777216   position = 104857612
+	value = 16777216   position = 104857616
+	value = 16777216   position = 104857620
+	value = 16777216   position = 104857624
+	value = 16777216   position = 104857628
+	value = 16777216   position = 104857632
+	value = 16777216   position = 104857636
+	ArchC: -------------------- Simulation Finished --------------------
 
-   Info: /OSCI/SystemC: Simulation stopped by user.
-   ArchC: Simulation statistics
-       Times: 0.00 user, 0.00 system, 0.00 real
-       Number of instructions executed: 63816
-       Simulation speed: (too fast to be precise)
-
-
+	Info: /OSCI/SystemC: Simulation stopped by user.
+	ArchC: Simulation statistics
+	    Times: 0.00 user, 0.00 system, 0.00 real
+	    Number of instructions executed: 63816
+	    Simulation speed: (too fast to be precise)
 
 Utilizando a seguinte tabela com CPI médio de instruções
 
