@@ -81,6 +81,7 @@ ac_tlm_rsp_status ac_tlm_peripheral::readm( const uint32_t &a , uint32_t &d )
 {
   d = v;
   v = 1;
+  cout << "v: " << std::hex << v << endl;
   return SUCCESS;
 }
 
