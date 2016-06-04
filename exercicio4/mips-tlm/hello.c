@@ -44,10 +44,12 @@ int main(int ac, char *av[]){
   /* ReleaseLock(); */
 
   /* f(procNumber); */
-  
-  *lock = 1234;
-  printf("Hello World! %d\n", *lock);
-  return 0;
+
+  int i;
+  for(i = 0; i < 10; i++){
+    printf("value = %d   position = %d\n", *lock, lock);
+    lock++;
+  }
 
   
   /* if (procNumber % 2) { */
