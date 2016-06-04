@@ -47,7 +47,7 @@ int main(int ac, char *av[]){
 
   int i;
   for(i = 0; i < 10; i++){
-    printf("value = %d   position = %d\n", *lock, lock);
+    printf("value = %#010x   position = %d\n", *lock, lock);
     lock++;
   }
 

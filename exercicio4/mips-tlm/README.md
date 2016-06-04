@@ -36,6 +36,23 @@ Obtendo a seguinte saída:
 
 Existe um cuidade a ser tomado na declaração do ponteiro de acesso ao periférico: é necessário que o ponteiro seja especificado como *volatile*. Isso avisa o compilador que o valor da variável pode mudar durante acessos diferentes evitando assim que ele realize otimizações como não escrever o valor da variável em memória durante escritas e leituras seguidas. Isso poderia causar inconsitência em programas que compartilham uma mesma variável.  
 
+Também alterei o programa *ac_tlm_peripheral.cpp* para que utilizasse uma variável global como mecanismo de tratamento de concorrência (já que ela será compartilhada por todos os processos que a utilizarem).
+
+
+       int v=0;
+       ac_tlm_rsp_status ac_tlm_peripheral::writem( const uint32_t &a , const uint32_t &d ){
+         cout << "addr: " <<  std::hex  << a << " data: " << d << endl;
+	 v = d;
+	 return SUCCESS;
+       }
+
+       ac_tlm_rsp_status ac_tlm_peripheral::readm( const uint32_t &a , uint32_t &d ){
+         d = v;
+	 v = 1;
+	 return SUCCESS;
+       }
+	      
+
 
 ## Leituras em um periférico ##
 
@@ -49,7 +66,7 @@ O programa inicial foi modificado para que lesse várias posições de memória 
 	int main(){
 		int i;
 		for(i = 0; i < 10; i++){
-		    printf("value = %d   position = %d\n", *lock, lock);
+		    printf("value = %#010x   position = %d\n", *lock, lock);
 		    lock++;
 		}
 		return 0;
@@ -62,16 +79,17 @@ A saída obtida foi a seguinte:
   	ArchC: Reading ELF application file: hello.mips
 	ArchC: -------------------- Starting Simulation --------------------
 
-	value = 0   position = 104857600
-	value = 16777216   position = 104857604
-	value = 16777216   position = 104857608
-	value = 16777216   position = 104857612
-	value = 16777216   position = 104857616
-	value = 16777216   position = 104857620
-	value = 16777216   position = 104857624
-	value = 16777216   position = 104857628
-	value = 16777216   position = 104857632
-	value = 16777216   position = 104857636
+	value = 0000000000   position = 104857600
+	value = 0x01000000   position = 104857604
+	value = 0x01000000   position = 104857608
+	value = 0x01000000   position = 104857612
+	value = 0x01000000   position = 104857616
+	value = 0x01000000   position = 104857620
+	value = 0x01000000   position = 104857624
+	value = 0x01000000   position = 104857628
+	value = 0x01000000   position = 104857632
+	value = 0x01000000   position = 104857636
+
 	ArchC: -------------------- Simulation Finished --------------------
 
 	Info: /OSCI/SystemC: Simulation stopped by user.
@@ -80,13 +98,6 @@ A saída obtida foi a seguinte:
 	    Number of instructions executed: 63816
 	    Simulation speed: (too fast to be precise)
 
-Utilizando a seguinte tabela com CPI médio de instruções
+Embora o programa esteja avançando o ponteiro para impressão de uma posição seguinte, não foi feita nenhuma alteração em *ac_tlm_peripheral.cpp* para que guardasse um vetor com as posições do periférico. Como mostrado anteriormente, *ac_tlm_peripheral.cpp* só utiliza uma variável global que é utilizada para tratar concorrência na etapa seguinte.
 
-Categoria | CPI médio
------------- | -------------
-Acesso à memória | 10
-Controle (branch/jump) | 3
-Outras | 1
-
-obtive os seguintes resultados:
 
