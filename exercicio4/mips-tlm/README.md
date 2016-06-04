@@ -99,6 +99,7 @@ A saída obtida foi a seguinte:
 
 Embora o programa esteja avançando o ponteiro para impressão de uma posição seguinte, não foi feita nenhuma alteração em *ac_tlm_peripheral.cpp* para que guardasse um vetor com as posições do periférico. Como mostrado anteriormente, *ac_tlm_peripheral.cpp* só utiliza uma variável global que é utilizada para tratar concorrência na etapa seguinte.
 
-Outra detalhe importante é o valor impresso em *hello.c*: achei melhor imprimí-lo em hexa para que ficasse mais evidente a troca de endianess depois de o valor ser armazenado na arquitetura do mips. Pelo fato de o mips trabalhar em big endian, a ordem de bytes dos valores são trocadas (de 00 00 00 00 01 para 01 00 00 00).  
+Outra detalhe importante é o valor impresso em *hello.c*: achei melhor imprimí-lo em hexa para que ficasse mais evidente a troca de endianess depois de o valor ser armazenado na arquitetura do mips. Pelo fato de o mips trabalhar em big endian, a ordem de bytes dos valores são trocadas (de 00 00 00 01 para 01 00 00 00).  
 
+## Plataforma multicore ##
 
