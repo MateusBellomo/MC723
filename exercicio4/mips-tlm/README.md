@@ -38,18 +38,17 @@ Existe um cuidade a ser tomado na declaração do ponteiro de acesso ao perifér
 
 Também alterei o programa *ac_tlm_peripheral.cpp* para que utilizasse uma variável global como mecanismo de tratamento de concorrência (já que ela será compartilhada por todos os processos que a utilizarem).
 
-
        int v=0;
        ac_tlm_rsp_status ac_tlm_peripheral::writem( const uint32_t &a , const uint32_t &d ){
          cout << "addr: " <<  std::hex  << a << " data: " << d << endl;
-	 v = d;
-	 return SUCCESS;
+         v = d;
+         return SUCCESS;
        }
 
        ac_tlm_rsp_status ac_tlm_peripheral::readm( const uint32_t &a , uint32_t &d ){
          d = v;
-	 v = 1;
-	 return SUCCESS;
+         v = 1;
+         return SUCCESS;
        }
 	      
 
@@ -99,5 +98,7 @@ A saída obtida foi a seguinte:
 	    Simulation speed: (too fast to be precise)
 
 Embora o programa esteja avançando o ponteiro para impressão de uma posição seguinte, não foi feita nenhuma alteração em *ac_tlm_peripheral.cpp* para que guardasse um vetor com as posições do periférico. Como mostrado anteriormente, *ac_tlm_peripheral.cpp* só utiliza uma variável global que é utilizada para tratar concorrência na etapa seguinte.
+
+Outra detalhe importante é o valor impresso em *hello.c*: achei melhor imprimí-lo em hexa para que ficasse mais evidente a troca de endianess depois de o valor ser armazenado na arquitetura do mips. Pelo fato de o mips trabalhar em big endian, a ordem de bytes dos valores são trocadas (de 00 00 00 00 01 para 01 00 00 00).  
 
 
