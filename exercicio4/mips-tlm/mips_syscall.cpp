@@ -86,11 +86,16 @@ void mips_syscall::return_from_syscall()
 void mips_syscall::set_prog_args(int argc, char **argv)
 {
   int i, j, base;
+  int SIZE1 = 30;
+  int SIZE2 = (1<<13);
+  
+  unsigned int ac_argv[SIZE1];
+  //  unsigned int ac_argv[30];
+  char ac_argstr[SIZE2];
+  //  char ac_argstr[512];
 
-  unsigned int ac_argv[30];
-  char ac_argstr[512];
-
-  base = AC_RAM_END - 512 - procNumber * 64 * 1024;
+  base = AC_RAM_END - SIZE2 - procNumber * 64 * 1024;
+  //  base = AC_RAM_END - 512 - procNumber * 64 * 1024;
   for (i=0, j=0; i<argc; i++) {
     int len = strlen(argv[i]) + 1;
     ac_argv[i] = base + j;
@@ -99,7 +104,8 @@ void mips_syscall::set_prog_args(int argc, char **argv)
   }
 
   RB[4] = base;
-  set_buffer(0, (unsigned char*) ac_argstr, 512);   //$25 = $29(sp) - 4 (set_buffer adds 4)
+  set_buffer(0, (unsigned char*) ac_argstr, SIZE2);   //$25 = $29(sp) - 4 (set_buffer adds 4)
+  //  set_buffer(0, (unsigned char*) ac_argstr, 512);   //$25 = $29(sp) - 4 (set_buffer adds 4)
 
 
   RB[4] = base - 120;
