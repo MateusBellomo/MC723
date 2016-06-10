@@ -103,7 +103,9 @@ Outra detalhe importante é o valor impresso em *hello.c*: achei melhor imprimí
 
 ## Plataforma multicore ##
 
-Para realizar um processamento paralelo, precisei apenas de uma função *AcquireLock()* e uma *ReleaseLock()*. Isso pois a aplicação escolhida foi elevar uma matriz de tamanho 64x64 ao quadrado, logo podemos dividí-la em duas metades e cada um dos processadores pode preencher metade da matriz resultante. O mecanismo de *lock* somente foi necessário para contar e atribuir o número para cada processador e no final, na impressão da matriz resultante. Foi utilizada outra variável auxiliar *workN* para contabilizar os processadores que já terminaram de calcular a sua metade da matriz resultante. Isso é necessário para que a impressão (ou qualquer outra utilização) da matriz resultante tenha consistência, ou seja, que a matriz resultante esteja devidamente calculada antes de sua utilização.
+A aplicação escolhida foi elevar uma matriz de tamanho 64x64 ao quadrado. A sua definição se encontra no arquivo *data.h* nesse pasta do repositório. O arquivo contendo a aplicação é *hello.c*
+
+Para realizar um processamento paralelo, precisei apenas de uma função *AcquireLock()* e uma *ReleaseLock()*. Isso pois a aplicação é elevar uma matriz ao quadrado, logo podemos dividí-la em duas metades e cada um dos processadores pode preencher metade da matriz resultante. O mecanismo de *lock* somente foi necessário para contar e atribuir o número para cada processador e no final, na impressão da matriz resultante. Foi utilizada outra variável auxiliar *workN* para contabilizar os processadores que já terminaram de calcular a sua metade da matriz resultante. Isso é necessário para que a impressão (ou qualquer outra utilização) da matriz resultante tenha consistência, ou seja, que a matriz resultante esteja devidamente calculada antes de sua utilização.
 
 Com a utilização de apenas um processador o resultado foi:
 
