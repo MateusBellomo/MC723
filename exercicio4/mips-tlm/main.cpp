@@ -53,22 +53,26 @@ int sc_main(int ac, char *av[])
   ac_trace2("mips_proc2.trace");
 #endif 
 
-  char *av1[2];
-  int ac1 = ac;
+  int ac1, ac2;
+  ac1 = ac2 = 2;
 
-  av1[0] = strdup(av[0]);
-  av1[1] = strdup(av[1]);
-  printf("av1[0] = %s\n", av1[0]);
-  printf("av1[1] = %s\n", av1[1]);
+  char *av1[] = {"mips.x", "--load=hello.mips"};
+  char *av2[] = {"mips.x", "--load=hello.mips"};
   
-  mips_proc1.init(ac1, av);
+  // av1[0] = strdup(av[0]);
+  // av1[1] = strdup(av[1]);
+  // printf("av1[0] = %s\n", av1[0]);
+  // printf("av1[1] = %s\n", av1[1]);
+  
+  mips_proc1.init(ac1, av1);
   cerr << endl;
 
-  mips_proc2.init(ac1, av1);
+  mips_proc2.init(ac2, av2);
+  
   cerr << endl;
 
-  // mips_proc1.set_instr_batch_size(1);
-  // mips_proc2.set_instr_batch_size(1);
+  mips_proc1.set_instr_batch_size(1);
+  mips_proc2.set_instr_batch_size(1);
   
   sc_start();
 

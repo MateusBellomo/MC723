@@ -103,3 +103,36 @@ Outra detalhe importante é o valor impresso em *hello.c*: achei melhor imprimí
 
 ## Plataforma multicore ##
 
+Para realizar um processamento paralelo, precisei apenas de uma função *AcquireLock()* e uma *ReleaseLock()*. Isso pois a aplicação escolhida foi elevar uma matriz de tamanho 64x64 ao quadrado, logo podemos dividí-la em duas metades e cada um dos processadores pode preencher metade da matriz resultante. O mecanismo de *lock* somente foi necessário para contar e atribuir o número para cada processador e no final, na impressão da matriz resultante. Foi utilizada outra variável auxiliar *workN* para contabilizar os processadores que já terminaram de calcular a sua metade da matriz resultante. Isso é necessário para que a impressão (ou qualquer outra utilização) da matriz resultante tenha consistência, ou seja, que a matriz resultante esteja devidamente calculada antes de sua utilização.
+
+Com a utilização de apenas um processador o resultado foi:
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+ArchC: Simulation statistics
+    Times: 0.74 user, 0.00 system, 0.75 real
+    Number of instructions executed: 10369863
+    Simulation speed: 14013.33 K instr/s
+ArchC: Simulation statistics
+    Times: 0.74 user, 0.00 system, 0.75 real
+    Number of instructions executed: 72
+    Simulation speed: 0.10 K instr/s
+
+
+Percebe-se que o primeiro processador realizou muito mais operações. O segundo processador ainda realizou algumas operações pois ele está em *busy waiting* na função *AcquireLock()* para numeração dos processadores.
+
+Com a utilização de dois processadores o resultado foi:
+
+Info: /OSCI/SystemC: Simulation stopped by user.
+ArchC: Simulation statistics
+    Times: 0.70 user, 0.00 system, 0.70 real
+    Number of instructions executed: 8378838
+    Simulation speed: 11969.77 K instr/s
+ArchC: Simulation statistics
+    Times: 0.70 user, 0.00 system, 0.70 real
+    Number of instructions executed: 1991146
+    Simulation speed: 2844.49 K instr/s
+
+
+Aqui percebemos que a divisão entre os processadores de fato atribuiu um grande número de instruções para o segundo processador. Além disso a soma total do número de instruções realizadas nos dois processadores é muito parecido tanto no caso em que só um processador é efetivamente utilizado quanto no segundo caso onde a tarefa é dividida entre os processadores.
+
+Vale notar também que o primeiro processador realizou um número bem maior de operações que o segundo (em torno de 80% do número total de instruções). Isso acontece pois ele é o responsável por imprimir a resposta e como utilizei um mecanismo de *busy waiting* para contagem dos processadores que terminaram seu trabalho, o processador fica em *loop* até que possa imprimir a resposta utilizando assim um número maior de instruções.

@@ -1,12 +1,12 @@
 #include <stdio.h>
+#include "data.h"
 #define START_ADRESS 0x6400000
-#define MAX 1000
 
 volatile int *lock = (volatile int *) START_ADRESS;
-static int procCounter = 0;
-int mat[MAX][MAX];
+volatile int procCounter = 0;
+volatile int workN = 0;
+
 int res[MAX][MAX];
-int n;
 
 void AcquireLock();
 void ReleaseLock();
@@ -39,7 +39,7 @@ void f(int procNumber){
   }
 }
 
-void printmatrix(int procNumber, int m[][MAX]){
+void printmatrix(int procNumber, int m[MAX][MAX]){
   printf("proc = %d\n", procNumber);
   int i, j;
   for(i = 0; i < n; i++){
@@ -55,50 +55,52 @@ void matrixmult(int procNumber){
   int i,j,k;
   
   if(procNumber == 0){
-    for(i = 0; i < n; i++){
+    for(i = 0; i < n/2; i++){
       for(j = 0; j < n; j++){
 	res[i][j] = 0;
 	for(k = 0; k < n; k++){
-	  res[i][j] += mat[i][k] + mat[k][j];
+	  res[i][j] += v[i][k] + v[k][j];
 	}
       }
     }
-    printf("proc = %d\n", procNumber);
+    AcquireLock();
+    workN++;
+    ReleaseLock();
   } else{
-    printf("proc = %d\n", procNumber);
+    
+    for(i = n/2; i < n; i++){
+      for(j = 0; j < n; j++){
+    	res[i][j] = 0;
+    	for(k = 0; k < n; k++){
+    	  res[i][j] += v[i][k] + v[k][j];
+    	}
+      }
+    }
+    AcquireLock();
+    workN++;
+    ReleaseLock();
   }
 }
 
-void readFromFile(int procNumber){
-  int i,j;
-  FILE *fp = fopen("data.txt", "r");
-  fscanf(fp, " %d", &n);
-  for(i = 0; i < n; i++)
-    for(j = 0; j < n; j++)
-      fscanf(fp, " %d", &mat[i][j]);
 
-  printmatrix(procNumber, mat);
-  
-  fclose(fp);
-}
-
-int main(int ac, char *av[]){
+int g(){
   int procNumber;
 
   AcquireLock();
-  procNumber = procCounter;
-  if(procNumber==0) readFromFile(procNumber);
-  procCounter++;
+  procNumber = procCounter++;
   ReleaseLock();
 
-  AcquireLock();
   matrixmult(procNumber);
-  if(procNumber == 0)
+  if(procNumber == 1){
+    while(workN < 2);
     printmatrix(procNumber, res);
-  ReleaseLock();
-  
-  //  f(procNumber);
+  }
+}
 
+int main(int ac, char *av[]){
+
+  g();
+  
   /* int i; */
   /* for(i = 0; i < 10; i++){ */
   /*   printf("value = %#010x   position = %d\n", *lock, lock); */
