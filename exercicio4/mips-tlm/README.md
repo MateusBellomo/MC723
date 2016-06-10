@@ -107,30 +107,30 @@ Para realizar um processamento paralelo, precisei apenas de uma função *Acquir
 
 Com a utilização de apenas um processador o resultado foi:
 
-Info: /OSCI/SystemC: Simulation stopped by user.
-ArchC: Simulation statistics
-    Times: 0.74 user, 0.00 system, 0.75 real
-    Number of instructions executed: 10369863
-    Simulation speed: 14013.33 K instr/s
-ArchC: Simulation statistics
-    Times: 0.74 user, 0.00 system, 0.75 real
-    Number of instructions executed: 72
-    Simulation speed: 0.10 K instr/s
+    Info: /OSCI/SystemC: Simulation stopped by user.
+    ArchC: Simulation statistics
+        Times: 0.74 user, 0.00 system, 0.75 real
+	Number of instructions executed: 10369863
+	Simulation speed: 14013.33 K instr/s
+    ArchC: Simulation statistics
+        Times: 0.74 user, 0.00 system, 0.75 real
+	Number of instructions executed: 72
+	Simulation speed: 0.10 K instr/s
 
 
 Percebe-se que o primeiro processador realizou muito mais operações. O segundo processador ainda realizou algumas operações pois ele está em *busy waiting* na função *AcquireLock()* para numeração dos processadores.
 
 Com a utilização de dois processadores o resultado foi:
 
-Info: /OSCI/SystemC: Simulation stopped by user.
-ArchC: Simulation statistics
-    Times: 0.70 user, 0.00 system, 0.70 real
-    Number of instructions executed: 8378838
-    Simulation speed: 11969.77 K instr/s
-ArchC: Simulation statistics
-    Times: 0.70 user, 0.00 system, 0.70 real
-    Number of instructions executed: 1991146
-    Simulation speed: 2844.49 K instr/s
+    Info: /OSCI/SystemC: Simulation stopped by user.
+    ArchC: Simulation statistics
+        Times: 0.70 user, 0.00 system, 0.70 real
+	Number of instructions executed: 8378838
+	Simulation speed: 11969.77 K instr/s
+    ArchC: Simulation statistics
+        Times: 0.70 user, 0.00 system, 0.70 real
+	Number of instructions executed: 1991146
+	Simulation speed: 2844.49 K instr/s
 
 
 Aqui percebemos que a divisão entre os processadores de fato atribuiu um grande número de instruções para o segundo processador. Além disso a soma total do número de instruções realizadas nos dois processadores é muito parecido tanto no caso em que só um processador é efetivamente utilizado quanto no segundo caso onde a tarefa é dividida entre os processadores.
